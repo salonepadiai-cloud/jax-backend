@@ -1,3 +1,5 @@
+import { generateSpeech } from "../services/elevenLabsService.js";
+
 export async function textToSpeech(req, res) {
   try {
     const { text } = req.body;
@@ -9,19 +11,17 @@ export async function textToSpeech(req, res) {
       });
     }
 
-    // ElevenLabs integration will be added next.
-    res.json({
-      success: true,
-      message: "Voice endpoint is ready.",
-      text
-    });
+    const audio = await generateSpeech(text);
+
+    res.setHeader("Content-Type", "audio/mpeg");
+    res.send(audio);
 
   } catch (error) {
     console.error(error);
 
     res.status(500).json({
       success: false,
-      message: "Internal Server Error"
+      message: error.message
     });
   }
 }
