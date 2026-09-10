@@ -1,8 +1,9 @@
 import { createClient } from "@supabase/supabase-js";
+import config from "./app.js";
 
 const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
+  config.supabase.url,
+  config.supabase.serviceRoleKey
 );
 
 export default supabase;
