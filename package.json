@@ -1,0 +1,27 @@
+{
+  "name": "jax-backend",
+  "version": "1.0.0",
+  "description": "Backend server for J.A.X (Johnny's Automated X-Engine)",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "jax",
+    "ai",
+    "groq",
+    "gemini",
+    "elevenlabs",
+    "express"
+  ],
+  "author": "Johnny TEC",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "multer": "^2.0.2"
+  }
+}
