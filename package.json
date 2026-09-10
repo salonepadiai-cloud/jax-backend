@@ -14,14 +14,18 @@
     "groq",
     "gemini",
     "elevenlabs",
+    "supabase",
     "express"
   ],
   "author": "Johnny TEC",
   "license": "MIT",
   "dependencies": {
+    "@supabase/supabase-js": "^2.56.0",
     "cors": "^2.8.5",
     "dotenv": "^16.6.1",
     "express": "^4.21.2",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.0",
     "multer": "^2.0.2"
   }
 }
