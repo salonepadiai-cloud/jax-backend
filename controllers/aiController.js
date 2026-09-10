@@ -4,7 +4,7 @@ export async function chatWithJAX(req, res) {
   try {
     const { message } = req.body;
 
-    if (!message) {
+    if (!message || message.trim() === "") {
       return res.status(400).json({
         success: false,
         message: "Message is required."
@@ -13,17 +13,19 @@ export async function chatWithJAX(req, res) {
 
     const reply = await generateResponse(message);
 
-    res.json({
+    return res.status(200).json({
       success: true,
-      reply
+      user: message,
+      reply,
+      timestamp: new Date().toISOString()
     });
 
   } catch (error) {
-    console.error(error);
+    console.error("J.A.X AI Error:", error);
 
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
-      message: "Internal Server Error"
+      message: error.message || "AI request failed."
     });
   }
 }
